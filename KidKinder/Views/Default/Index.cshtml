@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_KidKinderLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+    <!-- Navbar Start -->
+    <!-- Header Start -->
+    @Html.Action("PartialFeature", "Default")
+    <!-- Facilities Start -->
+    @Html.Action("PartialService", "Default")
+    <!-- About Start -->
+    @Html.Action("PartialAbout", "Default")
+   
+    <!-- Class Start -->
+    @Html.Action("PartialClassrooms", "Default")
+    <!-- Registration Start -->
+    @Html.Action("PartialBookASeat", "Default")
+
+
+    <!-- Team Start -->
+    @Html.Action("PartialTeacher", "Default")
+    <!-- Testimonial Start -->
+    @Html.Action("PartialTestimonial", "Default")
+    <!-- Testimonial End -->
+    <!-- Footer Start -->
+    <!-- Scripts -->
+</body>
+</html>

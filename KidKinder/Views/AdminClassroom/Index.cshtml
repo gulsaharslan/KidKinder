@@ -1,0 +1,79 @@
+﻿@model List<KidKinder.Entities.Classroom>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+
+<!-- Page-header end -->
+<div class="pcoded-inner-content">
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-body start -->
+            <div class="page-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Eğitim Grupları Tablosu</h5>
+                        <span>Eğitim Grupları ile ilgili işlemleri yapabileceğiniz alandır.</span>
+                        <div class="card-header-right">
+                            <ul class="list-unstyled card-option">
+                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                <li><i class="fa fa-trash close-card"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-block table-border-style">
+                        <div class="table-responsive">
+                            <form method="post">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Eğitim Grubu Adı</th>
+                                            <th>Açıklama</th>
+                                            <th>Yaş Aralığı</th>
+                                            <th>Saat Aralığı</th>
+                                            <th>Kontenjan</th>
+                                            <th>Fiyatı</th>
+                                            <th>Görsel</th>
+                                            <th>İşlemler</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.ClassroomId</td>
+                                                <td>@item.Title</td>
+                                                <td>@item.Description</td>
+                                                <td>@item.AgeofKids</td>
+                                                <td>@item.ClassTime</td>
+                                                <td>@item.TotalSeat</td>
+                                                <td>@item.Price</td>
+                                                <td width="15%"><img class=w-100 src="@item.ImageUrl" /></td>
+                                                <td>
+                                                    <a href="/AdminClassroom/DeleteClassroom/@item.ClassroomId" class="btn btn-danger rounded mb-2">Sil</a>
+
+                                                    <a href="/AdminClassroom/UpdateClassroom/@item.ClassroomId" class="btn btn-success rounded">Güncelle</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <a href="/AdminClassroom/CreateClassroom/" class="btn btn-primary rounded">Yeni Eğitim Grubu Girişi</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

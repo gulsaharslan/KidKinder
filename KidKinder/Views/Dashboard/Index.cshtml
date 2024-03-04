@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Templates/material_able-main/assets/css/font-awesome-n.min.css">
+
+
+<div class="pcoded-inner-content">
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-body start -->
+            <div class="page-body">
+                <div class="row justify-content-center">
+                    <div class="col-md-2">
+                        <div class="card bg-c-blue total-card">
+                            <div class="card-block">
+                                <div class="text-left">
+                                    <h4>@ViewBag.GirlStudent</h4>
+                                    <p class="m-0">Kız Öğrenci</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card bg-c-red total-card">
+                            <div class="card-block">
+                                <div class="text-left">
+                                    <h4>@ViewBag.BoyStudent</h4>
+                                    <p class="m-0">Erkek Öğrenci</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card bg-c-green total-card">
+                            <div class="card-block">
+                                <div class="text-left">
+                                    <h4>@ViewBag.Teacher</h4>
+                                    <p class="m-0">Eğitmen</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card bg-c-purple total-card">
+                            <div class="card-block">
+                                <div class="text-left">
+                                    <h4>@ViewBag.AvgPrice ₺</h4>
+                                    <p class="m-0">Ortalama Fiyat</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card bg-c-lite-green total-card">
+                            <div class="card-block">
+                                <div class="text-left">
+                                    <h4>@ViewBag.Classroom</h4>
+                                    <p class="m-0">Eğitim Grubu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+
+                    <div class="col-xl-6 col-md-8">
+                        <div class="card table-card">
+
+                            <div class="card-block">
+                                <script src="https://www.gstatic.com/charts/loader.js"></script>
+                                <div id="myChart2" style="width:100%; max-width:600px; height:300px;">
+                                </div>
+
+                                <script>
+                                    google.charts.load('current', { 'packages': ['corechart'] });
+                                    google.charts.setOnLoadCallback(drawChart);
+
+                                    function drawChart() {
+
+                                        // Set Data
+                                        const data = google.visualization.arrayToDataTable(@Html.Raw(Json.Encode(ViewBag.Classrooms)));
+
+                                        // Set Options
+                                        const options = {
+                                            title: 'Eğitim Grubu Tercih Oranı'
+                                        };
+
+                                        // Draw
+                                        const chart = new google.visualization.PieChart(document.getElementById('myChart2'));
+                                        chart.draw(data, options);
+
+                                    }
+                                </script>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    @*<div class="col-md-3">
+                            <div class="card text-center order-visitor-card">
+                                <div class="card-block">
+                                    <h6 class="m-b-0">Total Subscription</h6>
+                                    <h4 class="m-t-15 m-b-15"><i class="fa fa-arrow-down m-r-15 text-c-red"></i>7652</h4>
+                                    <p class="m-b-0">48% From Last 24 Hours</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center order-visitor-card">
+                                <div class="card-block">
+                                    <h6 class="m-b-0">Total Subscription</h6>
+                                    <h4 class="m-t-15 m-b-15"><i class="fa fa-arrow-down m-r-15 text-c-red"></i>7652</h4>
+                                    <p class="m-b-0">48% From Last 24 Hours</p>
+                                </div>
+                            </div>
+                        </div>*@
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

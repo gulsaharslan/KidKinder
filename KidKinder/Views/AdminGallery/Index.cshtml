@@ -1,0 +1,75 @@
+﻿@model List<KidKinder.Entities.Gallery>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<!-- Page-header end -->
+<div class="pcoded-inner-content">
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-body start -->
+            <div class="page-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Galeri Tablosu</h5>
+                        <span>Galeri için 6 adet aktif fotoğraf seçiniz.</span>
+                        <div class="card-header-right">
+                            <ul class="list-unstyled card-option">
+                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                <li><i class="fa fa-trash close-card"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-block table-border-style">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Başlık</th>
+                                        <th>ImageUrl</th>
+                                        <th>Durum</th>
+                                        <th>İşlemler</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        bool status = Convert.ToBoolean(item.Status);
+                                        <tr>
+                                            <td width="15%"><img class="w-100" src="@item.ImageUrl" /></td>
+                                            <td>@item.Title</td>
+                                            <td>@item.ImageUrl</td>
+                                            <td>
+                                                
+                                                @if (status)
+                                                {
+                                                    <a href="/AdminGallery/ChangeStatus/@item.GalleryId" class="btn btn-outline-success">Aktif</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/AdminGallery/ChangeStatus/@item.GalleryId" class="btn btn-outline-danger">Pasif</a>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a href="/AdminGallery/DeletePhoto/@item.GalleryId" class="btn btn-danger rounded">Sil</a>
+                                                <a href="/AdminGallery/UpdatePhoto/@item.GalleryId" class="btn btn-success rounded">Güncelle</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <a href="/AdminGallery/CreatePhoto" class="btn btn-primary rounded">Yeni Fotoğraf Ekle</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

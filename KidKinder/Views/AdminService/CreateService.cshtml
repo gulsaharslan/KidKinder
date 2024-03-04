@@ -1,0 +1,59 @@
+﻿@model KidKinder.Entities.Service
+@{
+    ViewBag.Title = "CreateService";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Hizmet Girişi</h5>
+                                <span> Hizmet verilerini eksiksiz olarak doldurunuz.</span>
+                            </div>
+                            <div class="card-block">
+
+                                <form method="post">
+                                    <div class="form-group row">
+
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.ServiceId, new { @type = "hidden" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Hizmet Başlığı</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.Title, new { @class = "form-cpntrol" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Açıklama</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.Description, new { @class = "form-cpntrol" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">IconUrl</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.IconUrl, new { @class = "form-cpntrol" })
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary rounded">Hizmeti Kaydet</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="styleSelector"></div>
+</div>
+
+

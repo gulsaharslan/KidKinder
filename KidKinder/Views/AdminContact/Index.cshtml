@@ -1,0 +1,96 @@
+﻿@model List<KidKinder.Entities.Contact>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<!-- Page-header end -->
+<div class="pcoded-inner-content">
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-body start -->
+            <div class="page-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Mesaj Tablosu</h5>
+                        <span>Mesajlar için verileri eksiksiz giriniz</span>
+                        <div class="card-header-right">
+                            <ul class="list-unstyled card-option">
+                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                <li><i class="fa fa-trash close-card"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-block table-border-style">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+
+                                        <th>#</th>
+                                        <th>Ad Soyad</th>
+                                        <th>Email</th>
+                                        <th>Konu</th>
+                                        <th>Gönderim Tarihi</th>
+                                        <th>Durum</th>
+                                        <th>İşlemler</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr>
+
+                                            <td>@item.ContactId</td>
+
+                                            <td>@item.NameSurname</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Subject</td>
+                                            <td>@item.SendDate</td>
+                                            <td>@item.IsRead</td>
+                                            <td>
+                                                <a href="/AdminContact/DeleteContact/@item.ContactId" class="btn btn-danger rounded">Sil</a>
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-primary rounded" data-toggle="modal" data-target="#exampleModal-@item.ContactId">
+                                                    Mesajı Oku
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal-@item.ContactId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Mesaj</h5>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @item.Message
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="location.href='/AdminContact/ReadMessage/@item.ContactId'">Kapat</button>
+                                                      
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,69 @@
+﻿@model KidKinder.Entities.Student
+@{
+    ViewBag.Title = "CreateStudent";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Öğrenci Girişi</h5>
+                                <span> Öğrenci verilerini eksiksiz olarak doldurunuz.</span>
+                            </div>
+                            <div class="card-block">
+
+                                <form method="post">
+                                    <div class="form-group row">
+                                       
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.StudentId, new { @class = "form-control", type="hidden" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Öğrenci Adı Soyadı</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Yaş</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Cinsiyet</label>
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(x => x.Gender, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Öğrenci Eğitim Grubu</label>
+                                        <div class="col-sm-10">
+                                            @Html.DropDownListFor(x => x.ClassroomId, (List<SelectListItem>)ViewBag.v, "Eğitim Grubu Seçiniz", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-primary rounded">Öğrenci Kaydet</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="styleSelector">
+
+    </div>
+</div>
+
+
