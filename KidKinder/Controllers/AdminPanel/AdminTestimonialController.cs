@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace KidKinder.Controllers.AdminPanel
 {
+    [Authorize]
     public class AdminTestimonialController : Controller
     {
         // GET: Testimonial

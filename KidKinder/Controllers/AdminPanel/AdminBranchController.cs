@@ -9,57 +9,53 @@ using System.Web.Mvc;
 namespace KidKinder.Controllers.AdminPanel
 {
     [Authorize]
-    public class AdminServiceController : Controller
-    {
+    public class AdminBranchController : Controller
+    {    
         KidKinderContext context=new KidKinderContext();
         public ActionResult Index()
         {
-            var values = context.Services.ToList();
+            var values =context.Branches.ToList();
             return View(values);
         }
 
-
         [HttpGet]
-
-        public ActionResult CreateService()
+        public ActionResult CreateBranch()
         {
 
             return View();
         }
 
         [HttpPost]
-        public ActionResult CreateService(Service service)
+        public ActionResult CreateBranch(Branch branch)
         {
 
-            context.Services.Add(service);
+            context.Branches.Add(branch);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        public ActionResult DeleteService(int id)
+        public ActionResult DeleteBranch(int id)
         {
 
-            var value = context.Services.Find(id);
-            context.Services.Remove(value);
+            var value = context.Branches.Find(id);
+            context.Branches.Remove(value);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public ActionResult UpdateService(int id)
+        public ActionResult UpdateBranch(int id)
         {
-            var values = context.Services.Find(id);
+            var values = context.Branches.Find(id);
             return View(values);
         }
 
         [HttpPost]
-        public ActionResult UpdateService(Service p)
+        public ActionResult UpdateBranch(Branch p)
         {
-            var value = context.Services.Find(p.ServiceId);
-            value.Title = p.Title;
-            value.Description = p.Description;
-            value.IconUrl= p.IconUrl;
-
+            var value = context.Branches.Find(p.BranchId);
+            value.BranchName = p.BranchName;
+       
             context.SaveChanges();
             return RedirectToAction("Index");
         }

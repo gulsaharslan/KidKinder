@@ -10,6 +10,7 @@ using KidKinder.Entities;
 
 namespace KidKinder.Controllers
 {
+    [Authorize]
     public class DashboardController : Controller
     {
       KidKinderContext context=new KidKinderContext();
@@ -24,13 +25,6 @@ namespace KidKinder.Controllers
             ViewBag.Message = context.Contacts.Where(x => x.IsRead == false).Count();
             ViewBag.Subscribe = context.MailSubscribes.Count();
 
-            //ViewBag.totalStudentCount = context.Students.Count();
-            //ViewBag.student4Age = context.Students.Where(x => x.Age == 4).Count();
-            //ViewBag.student5Age = context.Students.Where(x => x.Age == 5).Count();
-            //ViewBag.student6Age = context.Students.Where(x => x.Age == 6).Count();
-            //ViewBag.student7Age = context.Students.Where(x => x.Age == 7).Count();
-            //ViewBag.student8Age = context.Students.Where(x => x.Age == 8).Count();
-            //ViewBag.student9Age = context.Students.Where(x => x.Age == 9).Count();
 
 
             var classrooms = context.Classrooms.ToList();

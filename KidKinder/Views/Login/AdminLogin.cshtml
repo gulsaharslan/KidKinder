@@ -1,4 +1,4 @@
-﻿
+﻿@model KidKinder.Entities.Admin
 @{
     Layout = null;
 }
@@ -37,14 +37,15 @@
                                 
                                 <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
                             </div>
-                            <form action="/Dashboard/Index/" method="post">
+                            <form action="/Login/AdminLogin/" method="post">
                                 <div class="form-group first">
                                     <label for="username">Kullanıcı Adı</label>
-                                    <input type="text" class="form-control" placeholder="kullanıcı adınızı giriniz" id="username">
+                                    @Html.TextBoxFor(x=>x.Username, new {@class="form-control", placeholder = "kullanıcı adınızı giriniz" })
                                 </div>
                                 <div class="form-group last mb-3">
                                     <label for="password">Şifre</label>
-                                    <input type="password" class="form-control" placeholder="şifrenizi giriniz" id="password">
+                                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "şifrenizi giriniz", type="password"})
+
                                 </div>
 
                                 <div class="d-sm-flex mb-5 align-items-center">

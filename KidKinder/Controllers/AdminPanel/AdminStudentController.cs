@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace KidKinder.Controllers.AdminPanel
 {
+    [Authorize]
     public class AdminStudentController : Controller
     {
         KidKinderContext context = new KidKinderContext();

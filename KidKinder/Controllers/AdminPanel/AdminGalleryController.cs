@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace KidKinder.Controllers.AdminGallery
 {
+    [Authorize]
     public class AdminGalleryController : Controller
     {
         KidKinderContext context = new KidKinderContext();

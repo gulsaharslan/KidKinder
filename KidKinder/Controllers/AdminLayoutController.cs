@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using KidKinder.Context;
 
 
@@ -53,6 +54,12 @@ namespace KidKinder.Controllers
         public PartialViewResult PartialHeader()
         {
             return PartialView();
+        }
+
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("AdminLogin", "Login");
         }
     }
 }
